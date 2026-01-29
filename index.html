@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University WiFi - Login & Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container" id="mainContainer">
+        <div class="left-panel">
+            <div class="img-layer signup-img" id="signupImg"></div>
+            <div class="img-layer panel-img" id="panelImg"></div>
+            
+            <div class="content-overlay">
+                <div class="logo">
+                </div>
+                <div class="footer-text">
+                    <p>© 2026 Universitas Kristen Maranatha<br>Powered by NOC</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div id="loginForm" class="form-box">
+                <h1>Login</h1>
+                <form onsubmit="return false;">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" placeholder="Enter your username">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter your password">
+                    </div>
+                    <div class="forgot-link">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button class="action-btn">Login to WiFi</button>
+                    <div class="switch-text">
+                        Don't have an account? <a href="javascript:void(0)" onclick="toggleAuth(true)">Register Now</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="signupForm" class="form-box" style="display: none;">
+                <h1>Sign Up</h1>
+                <form onsubmit="return false;">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your full name">
+                    </div>
+                    <div class="input-group">
+                        <label>Email ID</label>
+                        <input type="email" placeholder="Enter your email">
+                    </div>
+                    <div class="input-group">
+                        <label>Create Password</label>
+                        <input type="password" placeholder="Create a password">
+                    </div>
+                    <button class="action-btn">Create Account</button>
+                    <div class="switch-text">
+                        Already have an account? <a href="javascript:void(0)" onclick="toggleAuth(false)">Login Here</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="bottom-links">
+                <a href="#">Terms and Services</a>
+                <p>Have a problem? Contact us at: <br><span>NOC@maranatha.edu</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAuth(isSignup) {
+            const container = document.getElementById('mainContainer');
+            const loginF = document.getElementById('loginForm');
+            const signupF = document.getElementById('signupForm');
+
+            if (isSignup) {
+                container.classList.add('signup-mode');
+                loginF.style.display = 'none';
+                signupF.style.display = 'block';
+            } else {
+                container.classList.remove('signup-mode');
+                loginF.style.display = 'block';
+                signupF.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
